@@ -81,3 +81,7 @@ void consolidatingCollection() {
   final totals = evens.fold<int>(0, (sum, element) => sum + element);
   print(totals);
 }
+
+void sortingList() {
+  final desserts = [''];
+}
