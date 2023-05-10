@@ -6,6 +6,10 @@ void main() {
   final someClass = SomeClass();
   print(someClass.myFiield);
   someClass.myMethode();
+
+  challenge1();
+
+  challenge2();
 }
 
 abstract class DataRepository {
@@ -31,4 +35,57 @@ class SomeClass implements AnotherClass {
 
   @override
   void myMethode() => print('hello');
+}
+
+void challenge1() {
+  final botle = Bottle();
+  botle.open();
+}
+
+abstract class Bottle {
+  factory Bottle() => SodaBotle();
+  void open();
+}
+
+class SodaBotle implements Bottle {
+  @override
+  void open() {
+    print('hello Oumar');
+  }
+}
+
+void challenge2() {
+  final database = DataStorage();
+  final note = database.findNote(42);
+  final allNotes = database.allNotes();
+  database.saveNote('Water the flowers.');
+  print(note);
+  print(allNotes);
+}
+
+abstract class DataStorage {
+  factory DataStorage() => FakeDatabase();
+  String findNote(int id);
+  List<String> allNotes();
+  void saveNote(String note);
+}
+
+class FakeDatabase implements DataStorage {
+  @override
+  String findNote(int id) {
+    return 'This is a note.';
+  }
+
+  @override
+  List<String> allNotes() {
+    return [
+      'This is a note.',
+      'This is another note.',
+      'Buy milk.',
+      'Platypuses are nice.',
+    ];
+  }
+
+  @override
+  void saveNote(String note) {}
 }
