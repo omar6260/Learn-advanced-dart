@@ -1,4 +1,4 @@
-void main(){
+void main() {
   final original = 'I like extensions!';
   final secret = original.encoded;
   final revealed = secret.decoded;
@@ -6,6 +6,8 @@ void main(){
   print(revealed);
 
   print(5.cubed);
+
+  challenge1();
 }
 
 String encode(String input) {
@@ -33,4 +35,13 @@ extension on int {
   int get cubed {
     return this * this * this;
   }
+}
+
+void challenge1() {
+  final timeRemaining = 3.minutes;
+  print(timeRemaining);
+}
+
+extension on int {
+  Duration get minutes => Duration(minutes: this);
 }
